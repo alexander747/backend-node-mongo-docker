@@ -1,0 +1,15 @@
+FROM node:14  #version de node
+
+RUN mkdir -p /usr/src/app #create folder if it doesnt exist -p it will create
+
+WORKDIR /usr/src/app #we are going to move into the folder created 
+
+COPY package*.json ./  #copy file package...json into /usr/src/app than is our folder job
+
+RUN npm install #execute npm install into our folder job
+
+COPY . . #this copy all our folders and files into /usr/src/app 
+
+EXPOSE 3000 #Expose port 
+
+CMD [ "npm","start" ]
